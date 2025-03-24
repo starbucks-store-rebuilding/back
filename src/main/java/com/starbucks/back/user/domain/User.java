@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User extends BaseEntity {
     @Id  //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //auto increment
-    @JsonIgnore  //json으로 변환 시 제외
+    @JsonIgnore  //json으로 변환 시 제외 (혹시 모를 직렬화 방지)
     private Long id;
 
     @Column(name = "user_uuid", nullable = false, unique = true, length = 36, updatable = false)
