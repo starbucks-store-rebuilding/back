@@ -2,14 +2,15 @@ package com.starbucks.back.user.dto.in;
 
 import com.starbucks.back.user.domain.User;
 import com.starbucks.back.user.domain.enums.UserGender;
-import com.starbucks.back.user.vo.SignUpRequestVo;
+import com.starbucks.back.user.domain.enums.UserState;
+import com.starbucks.back.user.vo.RequestSignUpVo;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Getter
-public class SignUpRequestDto {
+public class RequestSignUpDto {
     private String email;
     private String password;
     private String name;
@@ -19,7 +20,7 @@ public class SignUpRequestDto {
     private UserGender gender;
 
     @Builder
-    public SignUpRequestDto(String email, String password, String name,
+    public RequestSignUpDto(String email, String password, String name,
                             String nickname, String phoneNumber, LocalDate birthdate, UserGender gender)
     {
         this.email = email;
@@ -31,29 +32,31 @@ public class SignUpRequestDto {
         this.gender = gender;
     }
 
-    public User toEntitu(String userUuid) {
+    public User toEntity(String userUuid, String encodedPassword) {
         return User.builder()
                 .userUuid(userUuid)
                 .email(email)
-                .password(password)
+                .password(encodedPassword)
                 .name(name)
                 .nickname(nickname)
                 .phoneNumber(phoneNumber)
                 .birthdate(birthdate)
                 .gender(gender)
+                .state(UserState.ACTIVE)
                 .build();
     }
 
-    public static SignUpRequestDto from(SignUpRequestVo signUpRequestVo) {
-        return SignUpRequestDto.builder()
-                .email(signUpRequestVo.getEmail())
-                .password(signUpRequestVo.getPassword())
-                .name(signUpRequestVo.getName())
-                .nickname(signUpRequestVo.getNickname())
-                .phoneNumber(signUpRequestVo.getPhoneNumber())
-                .birthdate(signUpRequestVo.getBirthdate())
-                .gender(signUpRequestVo.getGender())
+    public static RequestSignUpDto from(RequestSignUpVo requestSignUpVo) {
+        return RequestSignUpDto.builder()
+                .email(requestSignUpVo.getEmail())
+                .password(requestSignUpVo.getPassword())
+                .name(requestSignUpVo.getName())
+                .nickname(requestSignUpVo.getNickname())
+                .phoneNumber(requestSignUpVo.getPhoneNumber())
+                .birthdate(requestSignUpVo.getBirthdate())
+                .gender(requestSignUpVo.getGender())
                 .build();
     }
+
 }
 

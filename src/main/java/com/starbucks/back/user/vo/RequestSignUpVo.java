@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.time.LocalDate;
 
 @Getter
-public class SignUpRequestVo {
+public class RequestSignUpVo {
     private String email;
     private String password;
     private String name;
