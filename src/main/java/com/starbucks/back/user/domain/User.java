@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  //기본 생성자 생성, 외부에서 생성자 호출 방지
@@ -39,7 +41,7 @@ public class User extends BaseEntity {
     private String phoneNumber;
 
     @Column(name = "birthdate", nullable = false)
-    private String birthdate;
+    private LocalDate birthdate;
 
     @Convert(converter = UserGenderConverter.class)
     @Column(name = "gender", nullable = false, length = 1)
@@ -51,7 +53,7 @@ public class User extends BaseEntity {
 
     @Builder
     public User(Long id, String userUuid, String email, String password, String nickname, String name,
-                String phoneNumber, String birthdate, UserGender gender, UserState state)
+                String phoneNumber, LocalDate birthdate, UserGender gender, UserState state)
     {
         this.id = id;
         this.userUuid = userUuid;
