@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @Getter
 public enum AgreementType {
-    SUBSCRIBE(0, "회원가입 약관"),
+    SIGNUP(0, "회원가입 약관"),
     DELIVERY(1, "배송지 등록 약관");
 
     private final int code;

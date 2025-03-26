@@ -3,7 +3,7 @@ package com.starbucks.back.user.dto.in;
 import com.starbucks.back.user.domain.User;
 import com.starbucks.back.user.domain.enums.UserGender;
 import com.starbucks.back.user.domain.enums.UserState;
-import com.starbucks.back.user.vo.RequestSignUpVo;
+import com.starbucks.back.user.vo.in.RequestSignUpVo;
 import lombok.Builder;
 import lombok.Getter;
 

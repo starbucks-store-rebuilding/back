@@ -2,18 +2,22 @@ package com.starbucks.back.agreement.domain;
 
 import com.starbucks.back.common.entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-
+@Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserAgreement extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "agreement_id")
-    private Long agreementId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Agreement agreement;
 
     @Column(name = "agreed", nullable = false)
     private boolean agreed;
@@ -22,9 +26,9 @@ public class UserAgreement extends BaseEntity {
     private String userUuid;
 
     @Builder
-    public UserAgreement(Long id, Long agreementId, boolean agreed, String userUuid) {
+    public UserAgreement(Long id, Agreement agreement, boolean agreed, String userUuid) {
         this.id = id;
-        this.agreementId = agreementId;
+        this.agreement = agreement;
         this.agreed = agreed;
         this.userUuid = userUuid;
     }

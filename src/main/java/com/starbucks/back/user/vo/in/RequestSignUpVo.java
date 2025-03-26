@@ -1,4 +1,4 @@
-package com.starbucks.back.user.vo;
+package com.starbucks.back.user.vo.in;
 
 import com.starbucks.back.user.domain.enums.UserGender;
 import lombok.Getter;
