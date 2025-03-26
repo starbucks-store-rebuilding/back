@@ -43,6 +43,7 @@ public class User extends BaseEntity {
     @Column(name = "birthdate", nullable = false)
     private LocalDate birthdate;
 
+    //@Enumerated(EnumType.STRING)
     @Convert(converter = UserGenderConverter.class)
     @Column(name = "gender", nullable = false, length = 1)
     private UserGender gender;

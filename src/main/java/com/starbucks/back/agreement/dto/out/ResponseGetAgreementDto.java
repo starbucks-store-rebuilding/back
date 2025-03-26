@@ -13,15 +13,15 @@ public class ResponseGetAgreementDto {
     private Long id;
     private String name;
     private String description;
-    private boolean isRequired;
+    private Boolean required;
     private AgreementType type;
 
     @Builder
-    public ResponseGetAgreementDto(Long id, String name, String description, boolean isRequired, AgreementType type) {
+    public ResponseGetAgreementDto(Long id, String name, String description, Boolean required, AgreementType type) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.isRequired = isRequired;
+        this.required = required;
         this.type = type;
     }
 
@@ -30,7 +30,7 @@ public class ResponseGetAgreementDto {
                 .id(agreement.getId())
                 .name(agreement.getName())
                 .description(agreement.getDescription())
-                .isRequired(agreement.isRequired())
+                .required(agreement.isRequired())
                 .type(agreement.getType())
                 .build();
     }
@@ -40,7 +40,7 @@ public class ResponseGetAgreementDto {
                 .id(id)
                 .name(name)
                 .description(description)
-                .isRequired(isRequired)
+                .required(required)
                 .type(type)
                 .build();
     }

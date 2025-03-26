@@ -23,6 +23,7 @@ public class Agreement extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Lob
     @Column(name = "description", columnDefinition = "TEXT", nullable = false)
     private String description;
 

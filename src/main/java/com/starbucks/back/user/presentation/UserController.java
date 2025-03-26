@@ -27,12 +27,12 @@ public class UserController {
 
     @PostMapping("/email/exists") // 이메일 중복 확인
     public boolean emailExists(@RequestBody RequestExistsEmailVo requestExistsEmailVo) {
-        return userService.emailExists(RequestExistsEmailDto.from(requestExistsEmailVo).getEmail());
+        return userService.existsEmail(RequestExistsEmailDto.from(requestExistsEmailVo).getEmail());
     }
 
     @PostMapping("/nickname/exists") // 닉네임 중복 확인
     public boolean nicknameExists(@RequestBody RequestExistsNicknameVo requestExistsNicknameVo) {
-        return userService.nicknameExists(RequestExistsNicknameDto.from(requestExistsNicknameVo).getNickname());
+        return userService.existsNickname(RequestExistsNicknameDto.from(requestExistsNicknameVo).getNickname());
     }
 
 

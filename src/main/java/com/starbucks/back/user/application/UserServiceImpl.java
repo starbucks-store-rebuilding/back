@@ -8,26 +8,24 @@ import org.springframework.stereotype.Service;
 
 import static java.util.UUID.randomUUID;
 
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
     @Override
     public void signUp(RequestSignUpDto requestSignUpDto) {
-        String encodedPassword = passwordEncoder.encode(requestSignUpDto.getPassword());
-
-        userRepository.save(requestSignUpDto.toEntity(randomUUID().toString(), encodedPassword));
+        userRepository.save(requestSignUpDto.toEntity(passwordEncoder));
     }
 
     @Override
-    public boolean emailExists(String email) {
+    public boolean existsEmail(String email) {
         return userRepository.existsByEmail(email);
     }
 
     @Override
-    public boolean nicknameExists(String nickname) {
+    public boolean existsNickname(String nickname) {
         return userRepository.existsByNickname(nickname);
     }
 
