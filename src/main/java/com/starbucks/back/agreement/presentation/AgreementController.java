@@ -1,9 +1,8 @@
 package com.starbucks.back.agreement.presentation;
 
 import com.starbucks.back.agreement.application.AgreementService;
-import com.starbucks.back.agreement.domain.Agreement;
-import com.starbucks.back.agreement.dto.out.ResponseGetSignUpAgreementDto;
-import com.starbucks.back.agreement.vo.out.ResponseGetSignUpAgreementVo;
+import com.starbucks.back.agreement.dto.out.ResponseGetAgreementDto;
+import com.starbucks.back.agreement.vo.out.ResponseGetAgreementVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +18,10 @@ public class AgreementController {
     private final AgreementService agreementService;
 
     @GetMapping("/sign-up")
-    public List<ResponseGetSignUpAgreementVo> getSignUpAgreements() {
+    public List<ResponseGetAgreementVo> getSignUpAgreements() {
         return agreementService.getSignUpAgreements()
                 .stream()
-                .map(ResponseGetSignUpAgreementDto::toVo)
+                .map(ResponseGetAgreementDto::toVo)
                 .toList();
     }
 

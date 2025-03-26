@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ResponseGetSignUpAgreementVo {
+public class ResponseGetAgreementVo {
     private Long id;
     private String name;
     private String description;
@@ -15,7 +15,7 @@ public class ResponseGetSignUpAgreementVo {
     private AgreementType type;
 
     @Builder
-    public ResponseGetSignUpAgreementVo(Long id, String name, String description, boolean isRequired, AgreementType type) {
+    public ResponseGetAgreementVo(Long id, String name, String description, boolean isRequired, AgreementType type) {
         this.id = id;
         this.name = name;
         this.description = description;
